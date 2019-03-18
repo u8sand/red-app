@@ -1,7 +1,7 @@
 {
   "short_name": "Red App",
   "name": "By Daniel Clarke",
-  "start_url": "/",
+  "start_url": "/red-app/",
   "icons": [
     {
       "src": "/red-app/icon.png",
