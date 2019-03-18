@@ -1,0 +1,14 @@
+{
+  "short_name": "Red App",
+  "name": "By Daniel Clarke",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "display": "fullscreen",
+  "orientation": "portrait"
+}

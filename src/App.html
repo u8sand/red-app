@@ -1,0 +1,64 @@
+<svelte:window
+  on:mousedown="start({ y: event.screenX })"
+  on:mousemove="update({ y: event.screenX })"
+  on:mouseup="end()"
+  on:touchstart="start({ y: event.touches[0].screenX })"
+  on:touchmove="update({ y: event.touches[0].screenX })"
+  on:touchend="end()"
+/>
+<div
+  id="main"
+  on:dblclick="do_dblclick(event)"
+  style="background-color: rgb({r}, 0, 0);"
+></div>
+
+<style>
+  div {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+</style>
+
+<script>
+  export default {
+    methods: {
+      start({ y }) {
+        const { r } = this.get();
+        this.set({
+          start_y: y,
+          start_r: r,
+          active: true
+        });
+      },
+      update({ y }) {
+        const { start_r, start_y, active, lock } = this.get();
+        if (!active || lock === true) return;
+        const r = y - start_y + start_r;
+
+        this.set({
+          r: Math.max(Math.min(r, 255), 0)
+        });
+      },
+      end() {
+        this.set({
+          active: false
+        });
+      },
+      do_dblclick(evt) {
+        const { lock } = this.get()
+        this.set({ lock: !lock });
+        document.getElementById("main").requestFullscreen();
+      }
+    },
+    data() {
+      return {
+        r: 128,
+        active: false,
+        lock: false
+      };
+    }
+  };
+</script>
