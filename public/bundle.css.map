@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../src/App.html"
+  ],
+  "sourcesContent": [
+    "<svelte:window\n  on:mousedown=\"start({ y: event.screenX })\"\n  on:mousemove=\"update({ y: event.screenX })\"\n  on:mouseup=\"end()\"\n  on:touchstart=\"start({ y: event.touches[0].screenX })\"\n  on:touchmove=\"update({ y: event.touches[0].screenX })\"\n  on:touchend=\"end()\"\n/>\n<div\n  id=\"main\"\n  on:dblclick=\"do_dblclick(event)\"\n  style=\"background-color: rgb({r}, 0, 0);\"\n></div>\n\n<style>\n  div {\n    width: 100vw;\n    height: 100vh;\n    position: absolute;\n    left: 0;\n    top: 0;\n  }\n</style>\n\n<script>\n  export default {\n    methods: {\n      start({ y }) {\n        const { r } = this.get();\n        this.set({\n          start_y: y,\n          start_r: r,\n          active: true\n        });\n      },\n      update({ y }) {\n        const { start_r, start_y, active, lock } = this.get();\n        if (!active || lock === true) return;\n        const r = y - start_y + start_r;\n\n        this.set({\n          r: Math.max(Math.min(r, 255), 0)\n        });\n      },\n      end() {\n        this.set({\n          active: false\n        });\n      },\n      do_dblclick(evt) {\n        const { lock } = this.get()\n        this.set({ lock: !lock });\n        document.getElementById(\"main\").requestFullscreen();\n      }\n    },\n    data() {\n      return {\n        r: 128,\n        active: false,\n        lock: false\n      };\n    }\n  };\n</script>\n"
+  ],
+  "names": [],
+  "mappings": "AAeE,GAAG,cAAC,CAAC,AACH,KAAK,CAAE,KAAK,CACZ,MAAM,CAAE,KAAK,CACb,QAAQ,CAAE,QAAQ,CAClB,IAAI,CAAE,CAAC,CACP,GAAG,CAAE,CAAC,AACR,CAAC"
+}
