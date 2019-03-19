@@ -9,6 +9,7 @@
       "sizes": "512x512"
     }
   ],
+  "offline_enabled": true,
   "display": "fullscreen",
   "orientation": "portrait"
 }
