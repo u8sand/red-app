@@ -15,3 +15,11 @@ On android specifically (I'm frankly not sure about any other platform); a `mani
 
 1. ensure you can get the fullest of screens (no menu interference)
 2. enable the app to work on your device even when you're offline
+
+## Screenshots
+<img src="https://raw.githubusercontent.com/u8sand/red-app/master/screenshots/ss1.png" width="200" />
+<img src="https://raw.githubusercontent.com/u8sand/red-app/master/screenshots/ss2.png" width="200" />
+<img src="https://raw.githubusercontent.com/u8sand/red-app/master/screenshots/ss3.png" width="200" />
+<img src="https://raw.githubusercontent.com/u8sand/red-app/master/screenshots/ss4.png" width="200" />
+<img src="https://raw.githubusercontent.com/u8sand/red-app/master/screenshots/ss5.png" width="200" />
+<img src="https://raw.githubusercontent.com/u8sand/red-app/master/screenshots/ss6.png" width="200" />
